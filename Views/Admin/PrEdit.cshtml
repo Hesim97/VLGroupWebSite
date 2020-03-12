@@ -1,0 +1,53 @@
+﻿@model VLGroupWebSite.Entity.Product
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h4>Mehsul</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="PrEdit" enctype="multipart/form-data" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ProductId" />
+            <div class="form-group">
+                <label asp-for="ProductName" class="control-label"></label>
+                <input asp-for="ProductName" class="form-control" />
+                <span asp-validation-for="ProductName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="file" name="file" id="file" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Qeyd</label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="IsActiv" /> @Html.DisplayNameFor(model => model.IsActiv)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="IsHome" /> @Html.DisplayNameFor(model => model.IsHome)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Yenile" class="btn btn-succes" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a class="btn btn-primary" asp-action="Cataloglist">Geri</a>
+</div>
+
+
+

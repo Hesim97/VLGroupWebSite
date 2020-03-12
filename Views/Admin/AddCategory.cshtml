@@ -1,0 +1,17 @@
+﻿@model Category
+@{
+    ViewData["Title"] = "AddCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class=" container">
+    <h2> Kateqoriya əlavə et</h2>
+    <hr />
+    <form asp-action="AddCategory" asp-controller="Admin" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label>Kateqoriyanin adi</label>
+            <input asp-for="CategoryName" class="form-control" />
+        </div>
+        <input type="submit" class="btn btn-primary" value="Əlavə et" />
+    </form>
+</div>

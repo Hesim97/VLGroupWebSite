@@ -1,0 +1,80 @@
+﻿        <!-- Mobile Nav (max width 767px)-->
+<script src="~/js/jquery/jquery-2.2.4.min.js"></script>
+
+
+
+
+<div class="mobile-nav">
+    <!-- Navbar Brand -->
+    <div class="amado-navbar-brand">
+        <a asp-controller="Home" asp-action="Index"><img src="~/img/vlgroupLogo.png" alt=""></a>
+    </div>
+    <!-- Navbar Toggler -->
+    <div class="amado-navbar-toggler">
+        <span></span><span></span><span></span>
+    </div>
+</div>
+
+<!-- Header Area Start -->
+<header class="header-area clearfix">
+    <!-- Close Icon -->
+    <div class="nav-close">
+        <i class="fa fa-close" aria-hidden="true"></i>
+    </div>
+    <!-- Logo -->
+    <div class="logo">
+        <a asp-controller="Home" asp-action="Index"><img src="~/img/logoFinal.png" alt=""></a>
+    </div>
+    <!-- Amado Nav -->
+    <nav class="amado-nav">
+        <ul class="cart-fav-search">
+            <li><a style="font-style:italic;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-weight:bold" asp-controller="home" asp-action="index"><img src="~/img/icons/homeIco.png" alt="" /><b>Baş Səhifə</b></a></li>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li class="dropdown">
+                    <a asp-action="Cataloglist" asp-controller="admin">@User.Identity.Name</a>
+                    <a asp-action="Logout" asp-controller="Account">Logout</a>
+
+                </li>
+            }
+            <li class="dropdown">
+                <a style="font-style:italic;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-weight:bold" asp-controller="Product" asp-action="List">
+                    <img src="~/img/icons/catalogIco.png" alt="" />
+                    <b>Kataloq</b>
+                    @*<i class="fas fa-angle-down"></i>*@
+                </a>
+                @await Component.InvokeAsync("CategoryMenu")
+            </li>
+            <li><a style="font-style:italic;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-weight:bold" asp-controller="Cart" asp-action="Index"><img src="~/img/icons/cartIco.png" alt="">Səbət(@await Component.InvokeAsync("CartSummary"))</a></li>
+
+            <li><a style="font-style:italic;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-weight:bold" asp-controller="Home" asp-action="FotoQalereya">
+               <img src="~/img/icons/unnamed1.png" width="30" /> Foto Qalereya
+                   </a></li>
+
+            <li><a style="font-style:italic;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-weight:bold" asp-controller="about" asp-action="index"><img src="~/img/icons/aboutusIco.png" alt="" /><b>Haqqımızda</b></a></li>
+        </ul>
+    </nav>
+    <!-- Button Group -->
+    <div class="amado-btn-group mt-30 mb-100">
+
+    </div>
+
+    <div class="social-info d-flex justify-content-between">
+        <a href="https://instagram.com/vl.window.group.az?igshid=15vr4cee82jh5"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+        <a href="https://www.facebook.com/WinklausWindow-and-Door-105026594385902"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+        <a href="https://www.twitter.com"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+        <a href="https://www.youtube.com/channel/UC734vToY2ncqLeXhIqsUgYg"><i class="fa fa-youtube"></i></a>
+    </div>
+
+
+
+</header>
+
+
+<script>
+
+    $('li').removeClass('active');
+    $('li a[href="' + window.location.pathname + '"]').closest('li').addClass('active');
+
+</script>
+<!-- Header Area End -->

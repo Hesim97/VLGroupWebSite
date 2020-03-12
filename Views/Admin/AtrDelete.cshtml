@@ -1,0 +1,40 @@
+﻿@model VLGroupWebSite.Entity.ProductAttribute
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Bu atributu silmek istediyinizden eminsiniz?</h3>
+<div>
+    <h4>Mehsul Atribut</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           Attribut
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Attribute)
+        </dd>
+        <dt>
+           Dəyer
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Value)
+        </dd>
+        <dt>
+           Mehsul
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Product.ProductName)
+        </dd>
+    </dl>
+
+    <form asp-action="AtrDelete">
+        <input type="hidden" asp-for="ProductAttributeId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a class="btn btn-primary" asp-action="AtrIndex">geri</a>
+    </form>
+</div>
+
+

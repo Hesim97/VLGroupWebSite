@@ -1,0 +1,64 @@
+﻿@model VLGroupWebSite.Entity.Product
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Bu mehsulu silmek istediyinizden eminsiniz?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+        <dd>
+            <img src="~/img/@Model.Image" width="200" asp-append-version="true"/>
+        </dd>
+        <dt>
+          Tarix
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DateAdded)
+        </dd>
+        <dt>
+           Qeyd
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IsActiv)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsActiv)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IsHome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsHome)
+        </dd>
+    </dl>
+
+    <form asp-action="PrDelete">
+        <input type="hidden" asp-for="ProductId" />
+        <input type="submit" value="Sil" class="btn btn-danger" /> |
+        <a  class="btn btn-primary" asp-action="Cataloglist">Geri</a>
+    </form>
+</div>
+

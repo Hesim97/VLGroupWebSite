@@ -1,0 +1,39 @@
+﻿@model IEnumerable<VLGroupWebSite.Entity.Image>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<p>
+    <a class="btn btn-primary" asp-action="ImCreate">Yeni</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               Şəkil
+            </th>
+            <th>
+                Məhsul adı
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                   <img src="~/img/@item.ImageName" asp-append-version="true" width="100" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.ProductName)
+                </td>
+                <td>            
+                    <a class="btn btn-danger" asp-action="ImDelete" asp-route-id="@item.ImageId">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

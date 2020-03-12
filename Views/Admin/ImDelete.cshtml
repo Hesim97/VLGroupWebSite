@@ -1,0 +1,32 @@
+﻿@model VLGroupWebSite.Entity.Image
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Bu şəkili silmək istədiyinizdən əminsiniz?</h3>
+<div>
+    <h4>Şəkil</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+          Şəkil
+        </dt>
+        <dd>
+           <img src="~/img/@Model.ImageName" asp-append-version="true" width="100" />
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Product)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Product.ProductName)
+        </dd>
+    </dl>
+
+    <form asp-action="ImDelete"method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="ImageId" />
+        <input type="submit" value="Sil" class="btn btn-danger" /> 
+        <a asp-action="ImIndex">Geri</a>
+    </form>
+</div>

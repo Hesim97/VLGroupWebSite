@@ -1,0 +1,48 @@
+﻿@model IEnumerable<VLGroupWebSite.Entity.ProductAttribute>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<p>
+    <a class="btn btn-primary" asp-action="AtrCreate">Yeni</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               Atribut
+            </th>
+            <th>
+               Dəyər
+            </th>
+            <th>
+              Mehsul
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Attribute)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Value)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.ProductName)
+                </td>
+                <td>
+                    <a class="btn btn-danger" asp-action="AtrDelete" asp-route-id="@item.ProductAttributeId">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

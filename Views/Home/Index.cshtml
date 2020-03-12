@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="products-catagories-area clearfix">
+    <div class="amado-pro-catagory clearfix">
+        @foreach (var item in Model)
+        {
+        <div class="single-products-catagory clearfix">
+            <a asp-controller="Product" asp-action="Details" asp-route-id="@item.ProductId">
+                <img src="~/img/@item.Image" alt="">
+                <!-- Hover Content -->
+                <div class="hover-content">
+                    <div class="line"></div>
+                    <h4>@item.ProductName</h4>
+                </div>
+            </a>
+        </div>
+        }
+       
+    </div>
+</div>

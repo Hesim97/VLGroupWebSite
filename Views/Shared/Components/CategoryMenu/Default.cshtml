@@ -1,0 +1,9 @@
+﻿@model IEnumerable<Category>
+
+<div class="dp-Content" style="display:none;transition:all 1s ease-in-out">
+    @foreach (var item in Model)
+    {
+        <a style="font-weight:bold;color:red" asp-controller="Product" asp-action="List" asp-route-category="@item.CategoryName">@item.CategoryName</a>
+    }
+</div>
+

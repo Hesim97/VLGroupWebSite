@@ -1,0 +1,49 @@
+﻿@model IEnumerable<VLGroupWebSite.Entity.Order>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+              Sifariş №
+            </th>
+            <th>
+               Sifariş vaxtı
+            </th>
+            <th>
+              Ad
+            </th>
+            <th>
+               Telefon
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderNumber)
+                </td>
+                <td>
+                    <time datetime="@item.OrderDate.ToString("yyyy-MM-dd")">@item.OrderDate.ToString("dd MMMM yyyy")</time>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Adres)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefon)
+                </td>
+                <td>
+                    <a class="btn btn-danger" asp-action="OrDelete" asp-route-id="@item.OrderId">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

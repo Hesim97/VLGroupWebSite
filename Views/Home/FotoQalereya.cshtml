@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Product>
+@{
+    Layout = "~/Views/Shared/_GalleryLayout.cshtml";
+    ViewData["Title"] = "Foto Qalereya";
+
+}
+
+@*<div class="products-catagories-area clearfix">
+        <div class="amado-pro-catagory clearfix">
+            @foreach (var item in Model)
+            {
+
+                <div class="single-products-catagory clearfix" style="height:350px !important">
+                    <a asp-controller="Product" asp-action="Details" asp-route-id="@item.ProductId">
+                        <img src="~/img/@item.Image" style="width:100% !important;height:100% !important" alt="">
+                    </a>
+                </div>
+            }
+        </div>
+    </div>*@
+
+
+    <div class="products-catagories-area clearfix">
+        <div style="background-color:silver;text-align:center">
+        <h3 style="font-weight:700;color:red"> Foto Qalereya</h3>
+            </div>
+
+        <div class="amado-pro-catagory clearfix">
+        
+            @foreach (var item in Model)
+            {
+                <div class="single-products-catagory clearfix" style="margin-right:5px;width:180px; height :200px !important">
+                  <img class="img-fluid popup" title="@item.ProductName" src="~/img/@item.Image" style=" width:100% !important;height:100% !important" />
+                </div>
+          
+              }
+        </div>
+    </div>
+
+
+@*<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-xl">Extra large modal</button>*@
+
+
+@section script{
+    <script>
+        $('.popup').click(function () {
+            var src = $(this).attr('src');
+            $('#popup-img').attr('src', src);
+            $('#exampleModal').modal({
+                backdrop: 'false',
+                keyboard: false,
+
+            });
+        });
+    </script>
+}
+
+
+
+

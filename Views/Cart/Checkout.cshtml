@@ -1,0 +1,28 @@
+﻿@model OrderDetails
+@{
+    ViewData["Title"] = "Sifaris";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-12 col-lg-4">
+    <div class="cart-summary">
+        <div class="text-danger" asp-validation-summary="All"></div>
+        <h5>Sizin Bilgileriniz</h5>
+        <form method="post" class="">
+            <div class="form-group">
+                <label>Ad Soyad:</label>
+                <input asp-for="Adres" type="text" class="form-control" />
+            </div>        
+            <div class="form-group">
+                <label>Telefon:</label>
+                <input asp-for="Telefon" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Sifarisi tamamla" class="btn btn-danger" required />
+
+            </div>
+        </form>
+        <a class="btn btn-dark" asp-action="List" asp-controller="Product">Alis-verise davam</a>
+    </div>
+</div>
+
